@@ -1,0 +1,72 @@
+# version: '3.1'
+
+# nlu:
+#   - intent: ask_schedule_info
+#     examples: |
+#       - Jadwal layanan
+#       - Jadwal operasional
+#       - Apa jadwalnya?
+#       - Kapan layanan ini buka?
+#       - Kapan operasionalnya dimulai?
+#       - Jam operasional layanan
+#       - Buka jam berapa?
+#       - Tutup jam berapa?
+#       - Jam buka dan tutup
+#       - Informasi jadwal
+#       - Kapan mulai buka?
+#       - Kapan selesai buka?
+#       - Jadwal kerja layanan ini
+#       - Apa jam operasionalnya?
+#       - Bisakah Anda memberi tahu saya jadwalnya?
+#       - Saya ingin tahu jadwal operasional
+#       - Kapan layanan ini beroperasi?
+#       - Jam buka layanan
+#       - Jam tutup layanan
+#       - Jam operasional hari ini
+#       - Apakah layanan buka hari ini?
+#       - Apakah ada perubahan jadwal operasional?
+#       - Jadwal operasional minggu ini
+#       - Jam buka hari Senin
+#       - Jam tutup hari Jumat
+#       - Jam operasional akhir pekan
+#       - Layanan ini buka 24 jam?
+#       - Jam buka [pembuatan NPWP](service_name) hari [Senin](schedule_day)
+#       - Kapan [layanan perpanjangan SIM](service_name) dibuka pada [Rabu](schedule_day)?
+#       - Informasi jadwal [registrasi kendaraan](service_name) hari [Jumat](schedule_day)
+#       - Buka jam [pendaftaran BPJS](service_name) di hari [Sabtu](schedule_day)?
+#       - Jam operasional [pembuatan paspor](service_name) hari [Minggu](schedule_day)
+#       - Kapan [layanan konsultasi pajak](service_name) tersedia pada [Selasa](schedule_day)?
+#       - Apakah [pembayaran listrik](service_name) buka hari [Kamis](schedule_day)?
+#       - Jam buka [pengajuan visa](service_name) di [Hari Libur](schedule_day)
+#       - Jadwal [pembukaan rekening baru](service_name) hari [Kamis](schedule_day)
+#       - Waktu buka [layanan kesehatan](service_name) pada [Rabu](schedule_day)
+#       - Kapan [pembuatan akta kelahiran](service_name) dibuka hari [Selasa](schedule_day)
+#       - Jam operasional [pembuatan KTP](service_name) di hari [Senin](schedule_day)
+#       - Informasi waktu buka [layanan kelurahan](service_name) hari [Jumat](schedule_day)
+#       - Buka jam [pembayaran pajak](service_name) di hari [Sabtu](schedule_day)
+#       - Kapan [layanan administrasi kependudukan](service_name) tersedia pada [Minggu](schedule_day)?
+#       - Jam buka [layanan perpajakan](service_name) hari [Selasa](schedule_day)
+#       - Waktu operasional [pengurusan izin usaha](service_name) di hari [Kamis](schedule_day)
+#       - Kapan [layanan kesehatan masyarakat](service_name) buka pada [Rabu](schedule_day)?
+#       - Informasi jam [pendaftaran sekolah](service_name) hari [Senin](schedule_day)
+#       - Jam buka [layanan pengaduan](service_name) di hari [Jumat](schedule_day)
+#       - Jam buka [pembuatan NPWP](service_name)
+#       - Kapan [layanan perpanjangan SIM](service_name) dibuka?
+#       - Informasi jadwal [registrasi kendaraan](service_name)
+#       - Buka jam [pendaftaran BPJS](service_name)?
+#       - Jam operasional [pembuatan paspor](service_name)
+#       - Kapan [layanan konsultasi pajak](service_name) tersedia?
+#       - Apakah [pembayaran listrik](service_name) buka?
+#       - Jam buka [pengajuan visa](service_name)
+#       - Jadwal [pembukaan rekening baru](service_name)
+#       - Waktu buka [layanan kesehatan](service_name)
+#       - Kapan [pembuatan akta kelahiran](service_name) dibuka?
+#       - Jam operasional [pembuatan KTP](service_name)
+#       - Informasi waktu buka [layanan kelurahan](service_name)
+#       - Buka jam [pembayaran pajak](service_name)
+#       - Kapan [layanan administrasi kependudukan](service_name) tersedia?
+#       - Jam buka [layanan perpajakan](service_name)
+#       - Waktu operasional [pengurusan izin usaha](service_name)
+#       - Kapan [layanan kesehatan masyarakat](service_name) buka?
+#       - Informasi jam [pendaftaran sekolah](service_name)
+#       - Jam buka [layanan pengaduan](service_name)

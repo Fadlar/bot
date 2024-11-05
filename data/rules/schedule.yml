@@ -1,0 +1,24 @@
+version: '3.1'
+
+rules:
+  # - rule: Ask for service schedule with a specific service and day
+  #   steps:
+  #     - intent: ask_schedule_info
+  #       entities:
+  #         - service: 'pembuatan npwp'
+  #         - schedule_day: 'senin'
+  #     - action: action_provide_schedule_info
+
+  # - rule: Ask for service schedule with a specific service
+  #   steps:
+  #     - intent: ask_schedule_info
+  #       entities:
+  #         - service: 'pajak bumi'
+  #     - action: action_provide_schedule_info
+
+  # - rule: Ask for service schedule without specifying day
+  #   steps:
+  #     - intent: ask_schedule_info
+  #       entities:
+  #         - service: 'pembuatan npwp'
+  #     - action: action_provide_schedule_info

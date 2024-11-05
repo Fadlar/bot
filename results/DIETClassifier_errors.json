@@ -1,0 +1,122 @@
+[
+  {
+    "text": "Bagaimana cara mengakses layanan layanan pembayaran BRIVA?",
+    "entities": [
+      {
+        "start": 33,
+        "end": 57,
+        "value": "layanan pembayaran BRIVA",
+        "entity": "service"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "service",
+        "start": 41,
+        "end": 57,
+        "confidence_entity": 0.880547285079956,
+        "value": "pembayaran BRIVA",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Apa saja persyaratan untuk layanan pembayaran pajak kendaraan bermotor?",
+    "entities": [
+      {
+        "start": 35,
+        "end": 70,
+        "value": "pembayaran pajak kendaraan bermotor",
+        "entity": "service"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "service_info_option",
+        "start": 9,
+        "end": 20,
+        "confidence_entity": 0.5640138983726501,
+        "value": "persyaratan",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "service",
+        "start": 35,
+        "end": 70,
+        "confidence_entity": 0.7907419204711914,
+        "value": "pembayaran pajak kendaraan bermotor",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Saya butuh detail tentang persyaratan layanan untuk layanan layanan kesehatan",
+    "entities": [
+      {
+        "start": 26,
+        "end": 45,
+        "value": "persyaratan layanan",
+        "entity": "service_info_option"
+      },
+      {
+        "start": 60,
+        "end": 77,
+        "value": "layanan kesehatan",
+        "entity": "service"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "service_info_option",
+        "start": 26,
+        "end": 45,
+        "confidence_entity": 0.6505644917488098,
+        "value": "persyaratan layanan",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "service",
+        "start": 68,
+        "end": 77,
+        "confidence_entity": 0.9991369843482971,
+        "value": "kesehatan",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Jelaskan biaya atau tarif layanan untuk layanan layanan perbankan",
+    "entities": [
+      {
+        "start": 9,
+        "end": 33,
+        "value": "biaya atau tarif layanan",
+        "entity": "service_info_option"
+      },
+      {
+        "start": 48,
+        "end": 65,
+        "value": "layanan perbankan",
+        "entity": "service"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "service_info_option",
+        "start": 9,
+        "end": 33,
+        "confidence_entity": 0.6144906282424927,
+        "value": "biaya atau tarif layanan",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "service_info_option",
+        "start": 40,
+        "end": 65,
+        "confidence_entity": 0.5460535287857056,
+        "value": "layanan layanan perbankan",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+version: '3.1'
+
+nlu:
+  - intent: nlu_fallback
+    examples: |
+      - [fallback]
+      - Saya tidak mengerti
+      - Itu tidak masuk akal
+      - Tidak ada yang saya maksud
+      - Apa yang Anda katakan?
+      - Tolong ulangi
+      - Saya bingung

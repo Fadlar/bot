@@ -1,0 +1,32 @@
+version: '3.1'
+stories:
+  - story: User asks for specific service info
+    steps:
+      - intent: ask_service_info
+        entities:
+          - service: 'pembayaran pajak kendaraan bermotor'
+      - action: action_provide_service
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: User asks for service info without a specific service
+    steps:
+      - intent: ask_general_service_info
+      - action: utter_ask_service_name
+      - action: action_provide_service
+      - active_loop: ask_service_info_form
+
+  - story: User confirms matched service
+    steps:
+      - intent: ask_service_info
+      - action: action_provide_service
+      - intent: affirm
+      - action: utter_service_info_option
+      - intent: confirm_service_option
+      - action: action_provide_service_info
+
+  - story: User does not confirm matched service
+    steps:
+      - action: action_provide_service
+      - intent: deny
+      - action: utter_request_more_info

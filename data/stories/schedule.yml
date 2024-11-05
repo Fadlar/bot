@@ -1,0 +1,38 @@
+version: '3.1'
+
+stories:
+  # - story: User asks for service schedule info with both service and day
+  #   steps:
+  #     - intent: ask_schedule_info
+  #       entities:
+  #         - service: 'pembuatan npwp'
+  #         - schedule_day: 'senin'
+  #     - action: action_provide_schedule_info
+
+  # - story: User asks for service schedule info with service only
+  #   steps:
+  #     - intent: ask_schedule_info
+  #       entities:
+  #         - service: 'pembuatan npwp'
+  #     - action: action_provide_schedule_info
+
+  # - story: User asks for general schedule info without specifying service or day
+  #   steps:
+  #     - intent: ask_schedule_info
+  #     - action: utter_ask_service_name
+  #     - action: action_provide_service
+  #     - active_loop: ask_service_info_form
+
+  # - story: User confirms matched service for schedule
+  #   steps:
+  #     - intent: ask_schedule_info
+  #     - action: action_provide_service
+  #     - intent: affirm
+  #     - action: action_provide_schedule_info
+
+  # - story: User does not confirm matched service for schedule
+  #   steps:
+  #     - intent: ask_schedule_info
+  #     - action: action_provide_service
+  #     - intent: deny
+  #     - action: utter_request_more_info

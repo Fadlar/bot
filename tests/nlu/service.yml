@@ -1,0 +1,76 @@
+version: '3.1'
+
+nlu:
+  - intent: ask_service_info
+    examples: |
+      - Saya ingin tahu info layanan [Pembayaran Rekening PDAM](service)
+      - Bisa beri tahu info layanan [Pembayaran Pajak BPHTB](service)?
+      - Info layanan [SIM](service) ada di mana?
+      - Bagaimana cara mengakses layanan [layanan pembayaran BRIVA](service)?
+      - Tolong berikan informasi tentang layanan [catatan sipil](service)
+      - Apa saja persyaratan untuk layanan [pembayaran pajak kendaraan bermotor](service)?
+      - Bisa tolong jelaskan info layanan [pembuatan izin operasional pondok pesantren](service)?
+      - Saya ingin tahu info lengkap tentang layanan [intelkam skck dan perizinan](service)
+      - Apakah ada layanan [pembukaan rekening bank](service) di sini?
+      - Layanan [pembuatan npwp](service) ada di sini?
+
+  - intent: ask_general_service_info
+    examples: |
+      - Informasi layanan
+      - Info layanan
+      - Saya butuh info layanan
+      - Tolong beritahu saya tentang layanan
+      - Apa info tentang layanan yang ada?
+      - Saya ingin tahu tentang layanan di sini
+      - Info layanan apa saja yang ada?
+      - Bisa jelaskan layanan yang tersedia?
+      - Saya ingin bertanya tentang layanan
+
+  - intent: confirm_service_option
+    examples: |
+      - [Deskripsi Layanan](service_info_option)
+      - [Persyaratan Layanan](service_info_option)
+      - [Mekanisme & Prosedur Layanan](service_info_option)
+      - [Jangka Penyelesaian](service_info_option)
+      - [Biaya atau Tarif Layanan](service_info_option).
+
+  - intent: ask_specific_service_info
+    examples: |
+      - [persyaratan](service_info_option) untuk layanan [pajak bumi](service)
+      - Apa [persyaratan](service_info_option) untuk layanan [pembayaran pajak](service)?
+      - [Jangka waktu](service_info_option) untuk layanan [pengurusan sertifikat tanah](service)
+      - Saya ingin tahu [deskripsi layanan](service_info_option) untuk layanan [pembuatan KTP](service)
+      - Saya ingin tahu [deskripsi layanan](service_info_option) untuk layanan [pembuatan KTP](service)
+      - Apa saja [persyaratan layanan](service_info_option) untuk layanan [pembuatan paspor](service)?
+      - Berapa [biaya](service_info_option) untuk layanan [perpanjangan SIM](service)?
+      - Tolong jelaskan [mekanisme & prosedur layanan](service_info_option) untuk layanan [pendaftaran sekolah](service)
+      - Informasi [jangka waktu](service_info_option) penyelesaian untuk layanan [pembuatan sertifikat tanah](service)
+      - Bagaimana [prosedur](service_info_option) untuk layanan [pengurusan visa](service)?
+      - Saya butuh detail tentang [persyaratan layanan](service_info_option) untuk layanan [layanan kesehatan](service)
+      - Jelaskan [biaya atau tarif layanan](service_info_option) untuk layanan [layanan perbankan](service)
+      - Informasi [jangka waktu](service_info_option) untuk layanan [proses pembuatan akta kelahiran](service)
+      - Apa saja [deskripsi](service_info_option) dari layanan [pembuatan SIM](service)?
+      - Apa saja [deskripsi](service_info_option) dari layanan [pembuatan SIM](service)?
+
+  - intent: affirm
+    examples: |
+      - Ya 
+      - Iya
+      - Betul
+      - Itu benar
+      - Tentu
+      - Betul sekali
+      - Ya, itu yang saya maksud
+      - Iya, silakan lanjut
+      - Ya, saya ingin informasi itu
+
+  - intent: deny
+    examples: |
+      - Tidak
+      - Bukan
+      - Tidak itu
+      - Saya tidak mau
+      - Tidak, bukan itu
+      - Bukan layanan itu
+      - Tidak, coba layanan lain
+      - Tidak, saya butuh yang lain
