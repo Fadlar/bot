@@ -1,120 +1,102 @@
 version: '3.1'
-intents:
-  - ask_service_info
-  - ask_general_service_info
-  - ask_specific_service_info
-  - confirm_service_option
-
-  - ask_schedule_info
-
-  - affirm
-  - deny
-  - goodbye
-  - greet
-  - nlu_fallback
-
-entities:
-  - service_type
-  - service_name
-  - service_info_option
-  - schedule_day
-
-slots:
-  service_type:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: service_type
-      - type: from_text
-
-  service_type_selected:
-    type: text
-    influence_conversation: false
-    mappings: []
-
-  service_name:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: service_name
-      - type: from_text
-
-  service_info_option:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: service_info_option
-      - type: from_text
-
-  matched_service:
-    type: text
-    influence_conversation: false
-    mappings: []
-
-  schedule_day:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: schedule_day
-      - type: from_text
-
-forms:
-  ask_service_info_form:
-    required_slots:
-      - service_name
-
-responses:
-  utter_greet:
-    - text: |
-        Halo, selamat datang di Mal Pelayanan Publik! 😊
-        Saya di sini untuk membantu Anda. Silakan pilih salah satu opsi di bawah ini, atau Anda bisa bertanya langsung tentang layanan kami:
-        - Info Layanan (misalnya, layanan KTP, paspor, dll.)
-        - Jadwal Operasional (contoh: jam buka untuk tiap layanan)
-        - Cek Antrian (melihat status antrian)
-        - Buat Antrian (membuat antrian untuk layanan tertentu)
-          
-          Ada yang bisa saya bantu?
-
-  utter_ask_service_name:
-    - text: |
-        Tentu! Info layanan apa yang Anda butuhkan? 
-        Saya bisa membantu dengan layanan seperti KTP, paspor, SIM, dan lainnya.
-
-  utter_service_info_option:
-    - text: |
-        Baik saya siap membantu Anda dengan informasi mengenai layanan {matched_service}. Apa yang Anda ingin ketahui? Berikut opsi yang dapat Anda pilih:
-        - Deskripsi Layanan
-        - Persyaratan Layanan
-        - Mekanisme & Prosedur Layanan
-        - Jangka Penyelesaian
-        - Biaya atau Tarif Layanan Silahkan pilih salah satu dengan mengetikan nama informasi yang diinginkan.
-
-  utter_request_more_info:
-    - text: |
-        Maaf, saya tidak bisa menemukan layanan yang Anda maksud. Bisakah Anda memberikan lebih banyak detail atau menyebutkan layanan lain yang Anda butuhkan?
-
-  utter_goodbye:
-    - text: |
-        Terima kasih telah menghubungi Mal Pelayanan Publik! 😊
-        Jika ada hal lain yang ingin Anda tanyakan atau jika Anda membutuhkan bantuan lebih lanjut, jangan ragu untuk kembali.
-        Semoga hari Anda menyenangkan dan sampai jumpa lagi!
-
-  utter_fallback:
-    - text: |
-        Maaf, saya tidak memahami permintaan Anda. 😕 
-        Bisa Anda coba tanyakan dengan cara yang berbeda? 
-        Saya siap membantu Anda dengan informasi tentang layanan, jadwal operasional, cek antrian, atau buat antrian.
-
-actions:
-  - action_provide_service_type
-  - action_provide_service
-  - action_provide_service_info
-  - action_provide_service_direct
-
+# Define session config
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+
+# Define slots
+slots:
+  nama_layanan:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: nama_layanan
+  hari:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: hari
+
+  tujuan_layanan:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: jam_operasional_umum
+        value: 'jam_operasional'
+      - type: from_intent
+        intent: jam_operasional_spesifik
+        value: 'jam_operasional'
+      - type: from_intent
+        intent: info_layanan_umum
+        value: 'info_layanan'
+      - type: from_intent
+        intent: info_layanan_spesifik
+        value: 'info_layanan'
+
+# Define entities
+entities:
+  - nama_layanan
+  - hari
+  - tujuan_layanan
+
+# Define intents
+intents:
+  - nlu_fallback
+  - perpisahan
+  - salam
+
+  - jam_operasional_umum
+  - jam_operasional_spesifik
+  - info_layanan_umum
+  - info_layanan_spesifik
+
+# Define actions
+actions:
+  - action_cek_jadwal
+  - action_submit_jam_operasional
+  - jadwal_operasional_form
+
+# Define forms
+forms:
+  jam_operasional_form:
+    required_slots:
+      - nama_layanan
+
+# Define responses
+responses:
+  utter_salam:
+    - text: |
+        Halo! Senang bisa membantu Anda hari ini 😊
+
+        Berikut adalah beberapa hal yang bisa saya bantu:
+
+        - **Jam Operasional**: Cek jam buka layanan yang Anda butuhkan.
+        - **Cek Antrian**: Lihat posisi atau status antrian Anda.
+        - **Buat Antrian**: Daftarkan antrian baru untuk layanan tertentu.
+        - **Info Layanan**: Cari tahu lebih lanjut tentang layanan yang tersedia.
+
+        Tinggal sebutkan saja fitur yang ingin Anda gunakan, dan saya akan langsung membantu!
+
+  utter_ask_nama_layanan:
+    - text: 'Layanan apa yang ingin Anda ketahui jadwalnya?'
+
+  utter_ask_hari:
+    - text: 'Hari apa yang Anda ingin ketahui jadwalnya?'
+
+  utter_jadwal_harian:
+    - text: 'Berikut jadwal untuk {nama_layanan} pada hari {hari}: {jadwal}.'
+
+  utter_jadwal_mingguan:
+    - text: 'Berikut jadwal mingguan untuk {nama_layanan}: {jadwal_mingguan}'
+
+  utter_tidak_tersedia:
+    - text: 'Maaf, layanan {nama_layanan} tidak tersedia. Silakan cek nama layanan Anda.'
+
+  utter_perpisahan:
+    - text: 'Terima kasih sudah menggunakan layanan kami. Semoga hari Anda menyenangkan! 😊 Sampai jumpa lagi!'
+
+  utter_default:
+    - text: 'Maaf, saya tidak mengerti permintaan Anda. Coba jelaskan lebih detail atau pilih salah satu fitur yang bisa saya bantu.'

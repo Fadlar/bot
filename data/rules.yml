@@ -1,0 +1,44 @@
+version: '3.1'
+rules:
+  - rule: fallback jika input tidak dikenali
+    steps:
+      - intent: nlu_fallback
+      - action: utter_default
+
+  - rule: menyapa pengguna
+    steps:
+      - intent: salam
+      - action: utter_salam
+
+  - rule: mengakhiri percakapan
+    steps:
+      - intent: perpisahan
+      - action: utter_perpisahan
+
+  # - rule: tanyakan nama layanan jika hanya hari yang disebutkan
+  #   steps:
+  #     - intent: jadwal_operasional_hari
+  #     - action: utter_ask_nama_layanan
+
+  # - rule: tanyakan layanan dan hari jika keduanya tidak disebutkan
+  #   steps:
+  #     - intent: jadwal_operasional_umum
+  #     - action: utter_ask_nama_layanan
+  #     - action: utter_ask_hari
+
+  # - rule: Activate Pizza Form
+  #   steps:
+  #     - intent: buy_pizza
+  #     - actions: simple_pizza_form
+  #     - action_loop: simple_pizza_form
+
+  # - rule: Submit
+  #   condition:
+  #     - active_loop: simple_pizza_form
+  #   steps:
+  #     - action: simple_pizza_form
+  #     - active_loop: null
+  #     - slot_was_set:
+  #         - requested_slot: null
+  #     - action: utter_submit
+  #     - action: utter_pizza_slots

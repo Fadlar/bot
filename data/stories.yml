@@ -1,0 +1,86 @@
+version: '3.1'
+stories:
+  - story: menyapa pengguna dan menawarkan bantuan
+    steps:
+      - intent: salam
+      - action: utter_salam
+
+  - story: mengakhiri percakapan
+    steps:
+      - intent: perpisahan
+      - action: utter_perpisahan
+
+  - story: tanya jam operasional dengan nama layanan
+    steps:
+      - intent: jam_operasional_spesifik
+        entities:
+          - nama_layanan: 'Pembuatan NPWP'
+      - slot_was_set:
+          - tujuan_layanan: 'jam_operasional'
+      - action: jadwal_operasional_form # nanti dihapus
+      - action: action_submit_jam_operasional
+
+  - story: tanya jam operasional dengan nama layanan dan hari
+    steps:
+      - intent: jam_operasional_spesifik
+        entities:
+          - nama_layanan: 'Pembuatan NPWP'
+          - hari: 'senin'
+      - slot_was_set:
+          - tujuan_layanan: 'jam_operasional'
+      - action: jadwal_operasional_form # nanti dihapus
+      - action: action_submit_jam_operasional
+
+  - story: tanya jam operasional tanpa nama layanan
+    steps:
+      - intent: jam_operasional_umum
+      - action: jadwal_operasional_form # Form meminta nama_layanan
+      - active_loop: jadwal_operasional_form
+      - action: action_submit_jam_operasional
+
+  - story: tanya info layanan dengan nama layanan
+    steps:
+      - intent: info_layanan_umum
+        entities:
+          - nama_layanan: 'Pembayaran Pajak Bumi dan Bangunan'
+      - slot_was_set:
+          - tujuan_layanan: 'info_layanan'
+      - action: jadwal_operasional_form # nanti dihapus
+      - action: action_submit_jam_operasional # Bot memberikan info layanan berdasarkan tujuan_layanan
+
+  - story: tanya info layanan tanpa nama layanan
+    steps:
+      - intent: info_layanan_spesifik
+      - action: jadwal_operasional_form # Form meminta nama_layanan
+      - active_loop: jadwal_operasional_form
+      - action: action_submit_jam_operasional
+
+  # - story: jadwal layanan pada hari tertentu
+  #   steps:
+  #     - intent: jadwal_operasional_layanan_hari
+  #       entities:
+  #         - nama_layanan: 'pembuatan NPWP'
+  #         - hari: 'senin'
+  #     - action: action_set_nama_layanan
+  #     - action: action_cek_jadwal
+
+  # - story: jadwal layanan mingguan
+  #   steps:
+  #     - intent: jadwal_operasional_layanan
+  #       entities:
+  #         - nama_layanan: 'konsultasi hukum gratis'
+  #     - action: action_set_nama_layanan
+  #     - action: action_cek_jadwal
+
+  # - story: tanyakan nama layanan ketika hanya hari yang disebutkan
+  #   steps:
+  #     - intent: jadwal_operasional_hari
+  #       entities:
+  #         - hari: 'senin'
+  #     - action: utter_ask_nama_layanan
+
+  # - story: tanyakan spesifikasi layanan atau hari
+  #   steps:
+  #     - intent: jadwal_operasional_umum
+  #     - action: utter_ask_nama_layanan
+  #     - action: utter_ask_hari

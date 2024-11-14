@@ -1,0 +1,104 @@
+version: '3.1'
+nlu:
+  - intent: salam
+    examples: |
+      - Halo
+      - Hi
+      - Selamat pagi
+      - Selamat siang
+      - Selamat sore
+      - Hai
+      - Apa kabar?
+      - Permisi
+      - Pagi
+
+  - intent: perpisahan
+    examples: |
+      - Terima kasih
+      - Sampai jumpa
+      - Dadah
+      - Selamat tinggal
+      - Terima kasih sudah membantu
+      - Sudah cukup, terima kasih
+      - Bye
+      - Saya pergi dulu
+
+  - intent: jam_operasional_umum
+    examples: |
+      - Apa jam operasional?
+      - Jam berapa layanan buka?
+      - Bisa beritahu jam buka layanan?
+      - Kapan layanan buka?
+      - Jam berapa buka?
+      - Saya ingin tahu jam layanan
+
+  - lookup: hari
+    examples: |
+      senin
+      selasa
+      rabu
+      kamis
+      jumat
+      jum'at
+      sabtu
+      minggu
+
+  - intent: jam_operasional_spesifik
+    examples: |
+      - Apa jam operasional untuk [pembuatan NPWP](nama_layanan)?
+      - Jam berapa [konsultasi hukum gratis](nama_layanan) buka pada hari [senin](hari)?
+      - Kapan [pembuatan NPWP](nama_layanan) buka pada hari [selasa](hari)?
+      - Jadwal buka [konsultasi hukum gratis](nama_layanan) hari [rabu](hari)
+      - Layanan [pembuatan NPWP](nama_layanan) buka pada hari [kamis](hari) jam berapa?
+      - Apa jam buka [pembuatan NPWP](nama_layanan) pada hari [jumat](hari)?
+      - Berapa jam operasional untuk [konsultasi hukum gratis](nama_layanan) hari [sabtu](hari)?
+      - Layanan [pembuatan NPWP](nama_layanan) buka pada hari [minggu](hari) pukul berapa?
+      - Kapan [pembuatan NPWP](nama_layanan) buka hari [senin](hari)?
+      - Layanan [konsultasi hukum gratis](nama_layanan) buka pada [selasa](hari) jam berapa?
+      - Apa jam operasional [pembuatan NPWP](nama_layanan) hari [rabu](hari)?
+      - Jam berapa [konsultasi hukum gratis](nama_layanan) buka pada [kamis](hari)?
+      - Layanan [pembuatan NPWP](nama_layanan) buka pada hari [jumat](hari) jam berapa?
+      - Apa jam operasional [konsultasi hukum gratis](nama_layanan) hari [sabtu](hari)?
+      - Kapan [pembuatan NPWP](nama_layanan) buka hari [minggu](hari)?
+
+  - intent: info_layanan_umum
+    examples: |
+      - Bisa beritahu info layanan yang tersedia?
+      - Informasi layanan apa saja yang ada?
+      - Apa saja layanan yang tersedia?
+      - Saya ingin tahu tentang layanan yang tersedia
+      - Ada layanan apa saja di sini?
+      - Info layanan
+      - Tolong berikan informasi layanan
+      - Layanan apa yang tersedia?
+      - Beritahu saya informasi tentang layanan yang ada
+      - Apa saja layanan yang bisa saya akses?
+
+  - intent: info_layanan_spesifik
+    examples: |
+      - Beri saya informasi tentang [pembuatan NPWP](nama_layanan)
+      - Info layanan untuk [konsultasi hukum gratis](nama_layanan)
+      - Tolong berikan info mengenai [pelayanan kepabeanan](nama_layanan)
+      - Saya ingin tahu tentang layanan [pembuatan KTP](nama_layanan)
+      - Informasi untuk [Pembayaran Pajak Bumi dan Bangunan](nama_layanan)
+      - Ada info apa tentang [pelayanan pengaduan masyarakat](nama_layanan)?
+      - Beritahu saya info layanan [AK-1 (Kartu Kuning)](nama_layanan)
+      - Saya ingin tahu detail layanan [informasi pertanahan](nama_layanan)
+      - Apa yang bisa saya dapatkan dari layanan [pelayanan perizinan](nama_layanan)?
+      - Detail layanan [pembuatan izin usaha](nama_layanan)
+
+  - intent: nlu_fallback
+    examples: |
+      - ghskdjd
+      - 123456789
+      - qwerty
+      - saya mau
+      - lkjhgfdsa
+      - asdfghjkl
+      - ini apa?
+      - ????
+      - tidak tahu
+      - saya bingung
+      - apa ini
+      - bagaimana caranya?
+      - saya tidak mengerti
