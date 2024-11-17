@@ -15,30 +15,62 @@ rules:
       - intent: perpisahan
       - action: utter_perpisahan
 
-  # - rule: tanyakan nama layanan jika hanya hari yang disebutkan
-  #   steps:
-  #     - intent: jadwal_operasional_hari
-  #     - action: utter_ask_nama_layanan
+  - rule: handle pertanyaan jam operasional
+    condition:
+      - active_loop: jam_operasional_form
+      - slot_was_set:
+          - tujuan_layanan: jam_operasional
+    steps:
+      - intent: nama_layanan_tersedia # Intent valid untuk slot persyaratan
+      - action: jam_operasional_form
+      - active_loop: jam_operasional_form
 
-  # - rule: tanyakan layanan dan hari jika keduanya tidak disebutkan
-  #   steps:
-  #     - intent: jadwal_operasional_umum
-  #     - action: utter_ask_nama_layanan
-  #     - action: utter_ask_hari
+  - rule: handle pertanyaan informasi
+    condition:
+      - active_loop: informasi_form
+      - slot_was_set:
+          - tujuan_layanan: informasi
+    steps:
+      - intent: nama_layanan_tersedia # Intent valid untuk slot persyaratan
+      - action: informasi_form
+      - active_loop: informasi_form
 
-  # - rule: Activate Pizza Form
-  #   steps:
-  #     - intent: buy_pizza
-  #     - actions: simple_pizza_form
-  #     - action_loop: simple_pizza_form
+  - rule: handle pertanyaan persyaratan
+    condition:
+      - active_loop: persyaratan_form
+      - slot_was_set:
+          - tujuan_layanan: persyaratan
+    steps:
+      - intent: nama_layanan_tersedia # Intent valid untuk slot persyaratan
+      - action: persyaratan_form
+      - active_loop: persyaratan_form
 
-  # - rule: Submit
-  #   condition:
-  #     - active_loop: simple_pizza_form
-  #   steps:
-  #     - action: simple_pizza_form
-  #     - active_loop: null
-  #     - slot_was_set:
-  #         - requested_slot: null
-  #     - action: utter_submit
-  #     - action: utter_pizza_slots
+  - rule: handle pertanyaan mekanisme prosedur
+    condition:
+      - active_loop: mekanisme_prosedur_form
+      - slot_was_set:
+          - tujuan_layanan: mekanisme_prosedur
+    steps:
+      - intent: nama_layanan_tersedia # Intent valid untuk slot persyaratan
+      - action: mekanisme_prosedur_form
+      - active_loop: mekanisme_prosedur_form
+
+  - rule: handle pertanyaan waktu tunggu
+    condition:
+      - active_loop: waktu_tunggu_form
+      - slot_was_set:
+          - tujuan_layanan: waktu_tunggu
+    steps:
+      - intent: nama_layanan_tersedia # Intent valid untuk slot waktu_tunggu
+      - action: waktu_tunggu_form
+      - active_loop: waktu_tunggu_form
+
+  - rule: handle pertanyaan tarif biaya
+    condition:
+      - active_loop: tarif_biaya_form
+      - slot_was_set:
+          - tujuan_layanan: tarif_biaya
+    steps:
+      - intent: nama_layanan_tersedia # Intent valid untuk slot tarif_biaya
+      - action: tarif_biaya_form
+      - active_loop: tarif_biaya_form

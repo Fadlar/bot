@@ -10,15 +10,17 @@ stories:
       - intent: perpisahan
       - action: utter_perpisahan
 
-  - story: tanya jam operasional dengan nama layanan
+  - story: tanya menggunakan nama layanan langsung
     steps:
-      - intent: jam_operasional_spesifik
+      - intent: nama_layanan_tersedia
         entities:
           - nama_layanan: 'Pembuatan NPWP'
       - slot_was_set:
-          - tujuan_layanan: 'jam_operasional'
-      - action: jadwal_operasional_form # nanti dihapus
-      - action: action_submit_jam_operasional
+          - tujuan_layanan: null
+      - action: nama_layanan_tersedia_form
+      - active_loop: nama_layanan_tersedia_form
+      - active_loop: null
+      - action: utter_konfirmasi_nama_layanan
 
   - story: tanya jam operasional dengan nama layanan dan hari
     steps:
@@ -28,59 +30,135 @@ stories:
           - hari: 'senin'
       - slot_was_set:
           - tujuan_layanan: 'jam_operasional'
-      - action: jadwal_operasional_form # nanti dihapus
-      - action: action_submit_jam_operasional
+      - action: jam_operasional_form
+      - active_loop: jam_operasional_form
+      - active_loop: null
+      - action: action_manage_services
 
   - story: tanya jam operasional tanpa nama layanan
     steps:
       - intent: jam_operasional_umum
-      - action: jadwal_operasional_form # Form meminta nama_layanan
-      - active_loop: jadwal_operasional_form
-      - action: action_submit_jam_operasional
+      - action: jam_operasional_form
+      - active_loop: jam_operasional_form
+      - active_loop: null
+      - action: action_manage_services
 
-  - story: tanya info layanan dengan nama layanan
+  - story: tanya informasi spesifik
     steps:
-      - intent: info_layanan_umum
+      - intent: informasi_spesifik
         entities:
-          - nama_layanan: 'Pembayaran Pajak Bumi dan Bangunan'
+          - nama_layanan: 'Pembuatan NPWP'
       - slot_was_set:
-          - tujuan_layanan: 'info_layanan'
-      - action: jadwal_operasional_form # nanti dihapus
-      - action: action_submit_jam_operasional # Bot memberikan info layanan berdasarkan tujuan_layanan
+          - tujuan_layanan: 'informasi'
+      - action: informasi_form
+      - active_loop: informasi_form
+      - active_loop: null
+      - action: action_manage_services
 
-  - story: tanya info layanan tanpa nama layanan
+  - story: tanya informasi tanpa nama layanan
     steps:
-      - intent: info_layanan_spesifik
-      - action: jadwal_operasional_form # Form meminta nama_layanan
-      - active_loop: jadwal_operasional_form
-      - action: action_submit_jam_operasional
+      - intent: informasi_umum
+      - slot_was_set:
+          - tujuan_layanan: informasi
+      - action: utter_ask_nama_layanan
+      - intent: nama_layanan_tersedia
+      - action: informasi_form
+      - active_loop: informasi_form
+      - active_loop: null
+      - action: action_manage_services
 
-  # - story: jadwal layanan pada hari tertentu
-  #   steps:
-  #     - intent: jadwal_operasional_layanan_hari
-  #       entities:
-  #         - nama_layanan: 'pembuatan NPWP'
-  #         - hari: 'senin'
-  #     - action: action_set_nama_layanan
-  #     - action: action_cek_jadwal
+  - story: tanya persyaratan spesifik
+    steps:
+      - intent: persyaratan_spesifik
+        entities:
+          - nama_layanan: 'Pembuatan NPWP'
+      - slot_was_set:
+          - tujuan_layanan: 'persyaratan'
+      - action: persyaratan_form
+      - active_loop: persyaratan_form
+      - active_loop: null
+      - action: action_manage_services
 
-  # - story: jadwal layanan mingguan
-  #   steps:
-  #     - intent: jadwal_operasional_layanan
-  #       entities:
-  #         - nama_layanan: 'konsultasi hukum gratis'
-  #     - action: action_set_nama_layanan
-  #     - action: action_cek_jadwal
+  - story: tanya persyaratan tanpa nama layanan
+    steps:
+      - intent: persyaratan_umum
+      - slot_was_set:
+          - tujuan_layanan: persyaratan
+      - action: utter_ask_nama_layanan
+      - intent: nama_layanan_tersedia
+      - action: persyaratan_form
+      - active_loop: persyaratan_form
+      - active_loop: null
+      - action: action_manage_services
 
-  # - story: tanyakan nama layanan ketika hanya hari yang disebutkan
-  #   steps:
-  #     - intent: jadwal_operasional_hari
-  #       entities:
-  #         - hari: 'senin'
-  #     - action: utter_ask_nama_layanan
+  - story: tanya mekanisme prosedur spesifik
+    steps:
+      - intent: mekanisme_prosedur_spesifik
+        entities:
+          - nama_layanan: 'Pembuatan NPWP'
+      - slot_was_set:
+          - tujuan_layanan: 'mekanisme_prosedur'
+      - action: mekanisme_prosedur_form
+      - active_loop: mekanisme_prosedur_form
+      - active_loop: null
+      - action: action_manage_services
 
-  # - story: tanyakan spesifikasi layanan atau hari
-  #   steps:
-  #     - intent: jadwal_operasional_umum
-  #     - action: utter_ask_nama_layanan
-  #     - action: utter_ask_hari
+  - story: tanya mekanisme prosedur tanpa nama layanan
+    steps:
+      - intent: mekanisme_prosedur_umum
+      - slot_was_set:
+          - tujuan_layanan: mekanisme_prosedur
+      - action: utter_ask_nama_layanan
+      - intent: nama_layanan_tersedia
+      - action: mekanisme_prosedur_form
+      - active_loop: mekanisme_prosedur_form
+      - active_loop: null
+      - action: action_manage_services
+
+  - story: tanya waktu tunggu spesifik
+    steps:
+      - intent: waktu_tunggu_spesifik
+        entities:
+          - nama_layanan: 'Pembuatan NPWP'
+      - slot_was_set:
+          - tujuan_layanan: 'waktu_tunggu'
+      - action: waktu_tunggu_form
+      - active_loop: waktu_tunggu_form
+      - active_loop: null
+      - action: action_manage_services
+
+  - story: tanya waktu tunggu tanpa nama layanan
+    steps:
+      - intent: waktu_tunggu_umum
+      - slot_was_set:
+          - tujuan_layanan: waktu_tunggu
+      - action: utter_ask_nama_layanan
+      - intent: nama_layanan_tersedia
+      - action: waktu_tunggu_form
+      - active_loop: waktu_tunggu_form
+      - active_loop: null
+      - action: action_manage_services
+
+  - story: tanya tarif biaya spesifik
+    steps:
+      - intent: tarif_biaya_spesifik
+        entities:
+          - nama_layanan: 'Pembuatan NPWP'
+      - slot_was_set:
+          - tujuan_layanan: 'tarif_biaya'
+      - action: tarif_biaya_form
+      - active_loop: tarif_biaya_form
+      - active_loop: null
+      - action: action_manage_services
+
+  - story: tanya tarif biaya tanpa nama layanan
+    steps:
+      - intent: tarif_biaya_umum
+      - slot_was_set:
+          - tujuan_layanan: tarif_biaya
+      - action: utter_ask_nama_layanan
+      - intent: nama_layanan_tersedia
+      - action: tarif_biaya_form
+      - active_loop: tarif_biaya_form
+      - active_loop: null
+      - action: action_manage_services

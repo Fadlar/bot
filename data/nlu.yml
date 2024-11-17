@@ -23,6 +23,75 @@ nlu:
       - Bye
       - Saya pergi dulu
 
+  - intent: nama_layanan_tersedia
+    examples: |
+      - [Informasi Kepabeanan dan Cukai](nama_layanan)
+      - [Pembayaran Pajak Bumi dan Bangunan-P2](nama_layanan)
+      - [Pembayaran Pajak BPHTB](nama_layanan)
+      - [Pembayaran Pajak Daerah Lainnya Non PBB/ BPHTB](nama_layanan)
+      - [Pelayanan Penerbitan Surat Keterangan Hasil Pemeriksaan Narkotika SKHPN PNBP](nama_layanan)
+      - [Pelayanan Permohonan Sosialisasi](nama_layanan)
+      - [Pelayanan Mekanisme Rehabilitasi Medis dan Sosial](nama_layanan)
+      - [Pelayanan Permintaan Test Urine Deteksi Dini](nama_layanan)
+      - [Pelayanan Assesment Terpadu](nama_layanan)
+      - [Pelayanan Pengaduan Masyarakat](nama_layanan)
+      - [Pelayanan Persuratan dan Magang](nama_layanan)
+      - [Jobs Info ke Luar Negeri](nama_layanan)
+      - [Pencatatan E-ID CPMI SSW Jepang di SISKOP2MI](nama_layanan)
+      - [Pencatatan Data Pekerja Migran Indonesia, Re-entry/Cuti/Mandiri di SISKOP2MI](nama_layanan)
+      - [Permohonan Pengaduan Permasalahan/Kasus yang dialami oleh CPMI/PMI](nama_layanan)
+      - [Daftar Baru & Perubahan Data Peserta Mandiri](nama_layanan)
+      - [Pendaftaran Peserta Penerima Upah PU](nama_layanan)
+      - [Pendaftaran Peserta Bukan Penerima Upah BPU](nama_layanan)
+      - [INFORMASI LAYANAN](nama_layanan)
+      - [Pembukaan Rekening Bank](nama_layanan)
+      - [Layanan Informasi](nama_layanan)
+      - [Layanan Pembayaran BRIVA](nama_layanan)
+      - [Layanan Pembayaran MPN](nama_layanan)
+      - [Layanan Pengajuan Merchant](nama_layanan)
+      - [Layanan Pengajuan Kartu Kredit](nama_layanan)
+      - [Permohonan Informasi](nama_layanan)
+      - [PBG dan SLF](nama_layanan)
+      - [AK-1 Kartu Kuning](nama_layanan)
+      - [Layanan Administrasi Kependudukan dan Pencatatan Sipil](nama_layanan)
+      - [Pelayanan Perizinan Berbasis Risiko](nama_layanan)
+      - [Pelayanan Perizinan Berusaha Untuk Menunjang Kegiatan Usaha PB UMKU](nama_layanan)
+      - [Pelayanan Perizinan  Non OSS](nama_layanan)
+      - [Pelayanan LKPM](nama_layanan)
+      - [Pelayanan Informasi Penanaman Modal](nama_layanan)
+      - [Pelayanan Informasi dan Pengaduan PPID](nama_layanan)
+      - [Perizinan Bidang Pendidikan](nama_layanan)
+      - [Perizinan Bidang Perhubungan](nama_layanan)
+      - [Pendampingan OSS](nama_layanan)
+      - [Informasi Layanan Pertanahan](nama_layanan)
+      - [Pembuatan NPWP](nama_layanan)
+      - [Aktivasi EFIN](nama_layanan)
+      - [Pembuatan Kode Billing](nama_layanan)
+      - [Konsultasi Perpajakan](nama_layanan)
+      - [KONSULTASI HUKUM GRATIS](nama_layanan)
+      - [PELANGGARAN TILANG](nama_layanan)
+      - [Pembuatan Izin Operasional Madrasah/Sekolah](nama_layanan)
+      - [Sihalal](nama_layanan)
+      - [Permohonan Informasi](nama_layanan)
+      - [Pembuatan Izin Operasional Pondok Pesantren](nama_layanan)
+      - [Pembayaran Rekening PDAM](nama_layanan)
+      - [Pendaftaran Gugatan](nama_layanan)
+      - [Pembuatan Permohonan Pinjam Pakai Barang Bukti](nama_layanan)
+      - [Layanan konsultasi penggunaan E-Berpadu Bagi Penyidik dan Penuntut Umum](nama_layanan)
+      - [Permohonan Ganti Nama/ Perbaikan Akte Lahir](nama_layanan)
+      - [Permohonan Perwalian Anak di Bawah Umur](nama_layanan)
+      - [Permohonan Wali Pengampu](nama_layanan)
+      - [Permohonan Pengesahan Akta Kematian](nama_layanan)
+      - [Permohonan Adopsi/ Pengangkatan anak](nama_layanan)
+      - [Surat Keterangan Tidak pernah terpidana dan bebas hak pilih](nama_layanan)
+      - [PT PLN Persero](nama_layanan)
+      - [Intelkam SKCK & Perizinan](nama_layanan)
+      - [SPKT](nama_layanan)
+      - [Taspen](nama_layanan)
+      - [Pembayaran Pajak Kendaraan Bermotor](nama_layanan)
+      - [Sumbangan Wajib Dana Kecelakaan Lalu Lintas Jalan serta Registrasi dan Identifikasi Kendaraan Bermotor Tahunan](nama_layanan)
+      - [Sosialisasi dan Edukasi](nama_layanan)
+
   - intent: jam_operasional_umum
     examples: |
       - Apa jam operasional?
@@ -31,17 +100,6 @@ nlu:
       - Kapan layanan buka?
       - Jam berapa buka?
       - Saya ingin tahu jam layanan
-
-  - lookup: hari
-    examples: |
-      senin
-      selasa
-      rabu
-      kamis
-      jumat
-      jum'at
-      sabtu
-      minggu
 
   - intent: jam_operasional_spesifik
     examples: |
@@ -61,31 +119,85 @@ nlu:
       - Apa jam operasional [konsultasi hukum gratis](nama_layanan) hari [sabtu](hari)?
       - Kapan [pembuatan NPWP](nama_layanan) buka hari [minggu](hari)?
 
-  - intent: info_layanan_umum
+  - intent: informasi_umum
     examples: |
-      - Bisa beritahu info layanan yang tersedia?
-      - Informasi layanan apa saja yang ada?
-      - Apa saja layanan yang tersedia?
-      - Saya ingin tahu tentang layanan yang tersedia
-      - Ada layanan apa saja di sini?
-      - Info layanan
-      - Tolong berikan informasi layanan
-      - Layanan apa yang tersedia?
-      - Beritahu saya informasi tentang layanan yang ada
-      - Apa saja layanan yang bisa saya akses?
+      - Saya ingin tahu informasi layanan
+      - Berikan informasi umum tentang layanan ini
+      - Jelaskan informasi terkait layanan
+      - Apa itu layanan ini?
+      - Saya butuh informasi umum tentang prosedur layanan
 
-  - intent: info_layanan_spesifik
+  - intent: informasi_spesifik
     examples: |
-      - Beri saya informasi tentang [pembuatan NPWP](nama_layanan)
-      - Info layanan untuk [konsultasi hukum gratis](nama_layanan)
-      - Tolong berikan info mengenai [pelayanan kepabeanan](nama_layanan)
-      - Saya ingin tahu tentang layanan [pembuatan KTP](nama_layanan)
-      - Informasi untuk [Pembayaran Pajak Bumi dan Bangunan](nama_layanan)
-      - Ada info apa tentang [pelayanan pengaduan masyarakat](nama_layanan)?
-      - Beritahu saya info layanan [AK-1 (Kartu Kuning)](nama_layanan)
-      - Saya ingin tahu detail layanan [informasi pertanahan](nama_layanan)
-      - Apa yang bisa saya dapatkan dari layanan [pelayanan perizinan](nama_layanan)?
-      - Detail layanan [pembuatan izin usaha](nama_layanan)
+      - Apa detail spesifik tentang [pembuatan NPWP](nama_layanan)?
+      - Berikan deskripsi lengkap tentang [konsultasi hukum gratis](nama_layanan)
+      - Jelaskan lebih spesifik tentang [pembuatan NPWP](nama_layanan)
+      - Saya ingin tahu detail mengenai [konsultasi hukum gratis](nama_layanan)
+      - Apa yang spesifik dari layanan [pembuatan NPWP](nama_layanan)?
+
+  - intent: persyaratan_umum
+    examples: |
+      - Apa saja persyaratan yang dibutuhkan?
+      - Jelaskan persyaratan umum
+      - Saya ingin tahu syarat layanan secara umum
+      - Apa saja dokumen yang biasanya diperlukan?
+      - Sebutkan syarat dasar untuk layanan ini
+
+  - intent: persyaratan_spesifik
+    examples: |
+      - Apa saja persyaratan untuk [pembuatan NPWP](nama_layanan)?
+      - Persyaratan spesifik untuk [konsultasi hukum gratis](nama_layanan) apa saja?
+      - Sebutkan persyaratan untuk [pembuatan NPWP](nama_layanan)
+      - Bagaimana syarat untuk [konsultasi hukum gratis](nama_layanan)?
+      - Apa syarat dari layanan [pembuatan NPWP](nama_layanan)?
+
+  - intent: mekanisme_prosedur_umum
+    examples: |
+      - Bagaimana mekanisme layanan ini?
+      - Jelaskan prosedur layanan secara umum
+      - Apa langkah-langkah untuk memulai layanan ini?
+      - Bagaimana proses layanan biasanya dilakukan?
+      - Saya ingin tahu cara kerja layanan ini
+
+  - intent: mekanisme_prosedur_spesifik
+    examples: |
+      - Jelaskan mekanisme untuk [Pembayaran Pajak Kendaraan Bermotor](nama_layanan)
+      - Bagaimana prosedur untuk [Pendaftaran Gugatan](nama_layanan)?
+      - Apa langkah-langkah spesifik untuk [Pelayanan Mekanisme Rehabilitasi Medis dan Sosial](nama_layanan)?
+      - Jelaskan cara kerja layanan [Pembuatan Kode Billing](nama_layanan)
+      - Bagaimana mekanisme dari layanan [Taspen](nama_layanan)?
+
+  - intent: waktu_tunggu_umum
+    examples: |
+      - Berapa lama waktu yang dibutuhkan?
+      - Berapa lama prosesnya?
+      - Saya ingin tahu durasi layanan ini
+      - Biasanya berapa waktu yang diperlukan untuk layanan ini?
+      - Jelaskan waktu tunggu layanan ini
+
+  - intent: waktu_tunggu_spesifik
+    examples: |
+      - Berapa lama waktu yang dibutuhkan untuk [Pembuatan Izin Operasional Madrasah/Sekolah](nama_layanan)?
+      - Berapa lama proses [Pelayanan Assesment Terpadu](nama_layanan)?
+      - Saya ingin tahu durasi [Pelayanan Informasi Penanaman Modal](nama_layanan)
+      - Berapa waktu tunggu untuk [Pelayanan LKPM](nama_layanan)?
+      - Jelaskan waktu tunggu dari [Sihalal](nama_layanan)
+
+  - intent: tarif_biaya_umum
+    examples: |
+      - Berapa biaya layanan ini?
+      - Apa saja tarif yang berlaku?
+      - Saya ingin tahu biaya yang dibutuhkan
+      - Berapa kisaran biaya untuk layanan ini?
+      - Jelaskan tentang tarif layanan
+
+  - intent: tarif_biaya_spesifik
+    examples: |
+      - Berapa biaya untuk [Pelayanan Informasi dan Pengaduan PPID](nama_layanan)?
+      - Apa tarif dari [KONSULTASI HUKUM GRATIS](nama_layanan)?
+      - Saya ingin tahu biaya [Permohonan Pengaduan Permasalahan/Kasus yang dialami oleh CPMI/PMI](nama_layanan)
+      - Jelaskan tarif untuk [Permohonan Informasi](nama_layanan)
+      - Berapa tarif layanan [Pembayaran Rekening PDAM](nama_layanan)?
 
   - intent: nlu_fallback
     examples: |
@@ -102,3 +214,14 @@ nlu:
       - apa ini
       - bagaimana caranya?
       - saya tidak mengerti
+
+  - lookup: hari
+    examples: |
+      - senin
+      - selasa
+      - rabu
+      - kamis
+      - jumat
+      - jum\'at
+      - sabtu
+      - minggu

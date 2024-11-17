@@ -1,3 +1,5 @@
 .rasa/
 models/
 /.env
+results/
+tests/
