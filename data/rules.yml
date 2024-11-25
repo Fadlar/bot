@@ -15,62 +15,71 @@ rules:
       - intent: perpisahan
       - action: utter_perpisahan
 
-  - rule: handle pertanyaan jam operasional
-    condition:
-      - active_loop: jam_operasional_form
-      - slot_was_set:
-          - tujuan_layanan: jam_operasional
+  - rule: aktivasi jam_operasional
     steps:
-      - intent: nama_layanan_tersedia # Intent valid untuk slot persyaratan
-      - action: jam_operasional_form
-      - active_loop: jam_operasional_form
+      - intent: jam_operasional
+      - action: action_set_id_layanan
+      - action: action_manage_services
 
-  - rule: handle pertanyaan informasi
-    condition:
-      - active_loop: informasi_form
-      - slot_was_set:
-          - tujuan_layanan: informasi
+  - rule: aktivasi informasi
     steps:
-      - intent: nama_layanan_tersedia # Intent valid untuk slot persyaratan
-      - action: informasi_form
-      - active_loop: informasi_form
+      - intent: informasi
+      - action: action_set_id_layanan
+      - action: action_manage_services
 
-  - rule: handle pertanyaan persyaratan
-    condition:
-      - active_loop: persyaratan_form
-      - slot_was_set:
-          - tujuan_layanan: persyaratan
+  - rule: aktivasi persyaratan
     steps:
-      - intent: nama_layanan_tersedia # Intent valid untuk slot persyaratan
-      - action: persyaratan_form
-      - active_loop: persyaratan_form
+      - intent: persyaratan
+      - action: action_set_id_layanan
+      - action: action_manage_services
 
-  - rule: handle pertanyaan mekanisme prosedur
-    condition:
-      - active_loop: mekanisme_prosedur_form
-      - slot_was_set:
-          - tujuan_layanan: mekanisme_prosedur
+  - rule: aktivasi mekanisme_prosedur
     steps:
-      - intent: nama_layanan_tersedia # Intent valid untuk slot persyaratan
-      - action: mekanisme_prosedur_form
-      - active_loop: mekanisme_prosedur_form
+      - intent: mekanisme_prosedur
+      - action: action_set_id_layanan
+      - action: action_manage_services
 
-  - rule: handle pertanyaan waktu tunggu
-    condition:
-      - active_loop: waktu_tunggu_form
-      - slot_was_set:
-          - tujuan_layanan: waktu_tunggu
+  - rule: aktivasi waktu_tunggu
     steps:
-      - intent: nama_layanan_tersedia # Intent valid untuk slot waktu_tunggu
-      - action: waktu_tunggu_form
-      - active_loop: waktu_tunggu_form
+      - intent: waktu_tunggu
+      - action: action_set_id_layanan
+      - action: action_manage_services
 
-  - rule: handle pertanyaan tarif biaya
-    condition:
-      - active_loop: tarif_biaya_form
-      - slot_was_set:
-          - tujuan_layanan: tarif_biaya
+  - rule: aktivasi tarif_biaya
     steps:
-      - intent: nama_layanan_tersedia # Intent valid untuk slot tarif_biaya
-      - action: tarif_biaya_form
-      - active_loop: tarif_biaya_form
+      - intent: tarif_biaya
+      - action: action_set_id_layanan
+      - action: action_manage_services
+
+  - rule: aktivasi cek_antrian
+    steps:
+      - intent: cek_antrian
+      - action: action_set_id_layanan
+      - action: action_manage_services
+
+  - rule: aktivasi cek_status_antrian
+    steps:
+      - intent: cek_status_antrian
+      - action: action_set_id_layanan
+      - action: cek_status_antrian_form
+      - active_loop: cek_status_antrian_form
+
+  - rule: submit cek_status_antrian
+    condition:
+      - active_loop: cek_status_antrian_form
+    steps:
+      - action: cek_status_antrian_form
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
+      - action: action_manage_services
+
+  - rule: Menjawab pertanyaan tentang bantuan
+    steps:
+      - intent: bantuan
+      - action: utter_bantuan
+
+  - rule: Menjawab pertanyaan tentang fitur
+    steps:
+      - intent: fitur
+      - action: utter_fitur

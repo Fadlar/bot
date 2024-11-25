@@ -9,60 +9,43 @@ intents:
   - salam
   - perpisahan
   - nlu_fallback
-  - nama_layanan_tersedia
 
-  - jam_operasional_umum
-  - jam_operasional_spesifik
-  - informasi_umum
-  - informasi_spesifik
-  - persyaratan_umum
-  - persyaratan_spesifik
-  - mekanisme_prosedur_umum
-  - mekanisme_prosedur_spesifik
-  - waktu_tunggu_umum
-  - waktu_tunggu_spesifik
-  - tarif_biaya_umum
-  - tarif_biaya_spesifik
+  - jam_operasional
+  - informasi
+  - persyaratan
+  - mekanisme_prosedur
+  - waktu_tunggu
+  - tarif_biaya
+  - cek_antrian
+  - cek_status_antrian
+  - fitur
+  - bantuan
 
 # Define entities
 entities:
   - nama_layanan
   - hari
   - tujuan_layanan
+  - nomor_antrian
 
 # Define forms
 forms:
-  nama_layanan_tersedia_form:
-    required_slots:
-      - nama_layanan
-
   jam_operasional_form:
     required_slots:
-      - nama_layanan
       - hari
 
-  informasi_form:
+  cek_status_antrian_form:
     required_slots:
-      - nama_layanan
-
-  persyaratan_form:
-    required_slots:
-      - nama_layanan
-
-  mekanisme_prosedur_form:
-    required_slots:
-      - nama_layanan
-
-  waktu_tunggu_form:
-    required_slots:
-      - nama_layanan
-
-  tarif_biaya_form:
-    required_slots:
-      - nama_layanan
+      - nomor_antrian
 
 # Define slots
 slots:
+  id_layanan:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
   nama_layanan:
     type: text
     influence_conversation: true
@@ -77,95 +60,90 @@ slots:
       - type: from_entity
         entity: hari
 
+  nomor_antrian:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: nomor_antrian
+
   tujuan_layanan:
     type: text
     influence_conversation: true
     mappings:
       - type: from_intent
-        intent:
-          - jam_operasional_umum
-          - jam_operasional_spesifik
+        intent: jam_operasional
         value: 'jam_operasional'
       - type: from_intent
-        intent:
-          - informasi_umum
-          - informasi_spesifik
+        intent: informasi
         value: 'informasi'
       - type: from_intent
-        intent:
-          - persyaratan_umum
-          - persyaratan_spesifik
+        intent: persyaratan
         value: 'persyaratan'
       - type: from_intent
-        intent:
-          - mekanisme_prosedur_umum
-          - mekanisme_prosedur_spesifik
+        intent: mekanisme_prosedur
         value: 'mekanisme_prosedur'
       - type: from_intent
-        intent:
-          - waktu_tunggu_umum
-          - waktu_tunggu_spesifik
+        intent: waktu_tunggu
         value: 'waktu_tunggu'
       - type: from_intent
-        intent:
-          - tarif_biaya_umum
-          - tarif_biaya_spesifik
+        intent: tarif_biaya
         value: 'tarif_biaya'
+      - type: from_intent
+        intent: cek_antrian
+        value: 'cek_antrian'
+      - type: from_intent
+        intent: cek_status_antrian
+        value: 'cek_status_antrian'
 
 # Define responses
 responses:
   utter_salam:
     - text: |
-        Halo! Senang bisa membantu Anda hari ini 😊
+        **Halo! Selamat datang di Mal Pelayanan Publik! 👋**
+        Saya di sini untuk membantu Anda dengan berbagai informasi dan layanan. Berikut beberapa hal yang bisa saya bantu:
+          - **Jam operasional layanan**
+          - **Informasi dan deskripsi layanan**
+          - **Persyaratan untuk setiap layanan**
+          - **Mekanisme dan prosedur layanan**
+          - **Estimasi waktu tunggu layanan**
+          - **Tarif atau biaya layanan**
+          - **Cek antrian dan status nomor antrian Anda**
+        Silakan pilih salah satu fitur di atas atau tanyakan apa pun yang Anda butuhkan. Ketik saja, dan saya akan segera membantu Anda! 😊
 
-        Berikut adalah beberapa hal yang bisa saya bantu:
-
-        - **Jam Operasional**: Cek jam buka layanan yang Anda butuhkan.
-        - **Cek Antrian**: Lihat posisi atau status antrian Anda.
-        - **Buat Antrian**: Daftarkan antrian baru untuk layanan tertentu.
-        - **Info Layanan**: Cari tahu lebih lanjut tentang layanan yang tersedia.
-
-        Tinggal sebutkan saja fitur yang ingin Anda gunakan, dan saya akan langsung membantu!
-
-  utter_konfirmasi_nama_layanan:
+  utter_fitur:
     - text: |
-        Anda ingin informasi tentang layanan **"{nama_layanan}"**, benar? 😊
+        Berikut beberapa fitur yang tersedia dalam layanan ini:
+          - **Cek antrian dan status nomor antrian Anda**
+          - **Jam operasional layanan**
+          - **Informasi dan deskripsi layanan**
+          - **Persyaratan untuk setiap layanan**
+          - **Mekanisme dan prosedur layanan**
+          - **Estimasi waktu tunggu layanan**
+          - **Tarif atau biaya layanan**
+        Silakan pilih layanan yang ingin Anda akses.
 
-        Berikut adalah beberapa hal yang bisa saya bantu terkait layanan ini:
-        - **Jam Operasional**: Cek jam buka untuk layanan ini.
-        - **Deskripsi Layanan**: Dapatkan informasi lebih lanjut mengenai layanan ini.
-        - **Persyaratan Layanan**: Ketahui apa saja yang diperlukan untuk mengakses layanan ini.
-        - **Mekanisme dan Prosedur**: Pelajari langkah-langkah untuk mendapatkan layanan.
-        - **Biaya Layanan**: Ketahui biaya yang dikenakan untuk layanan ini.
-        - **Waktu Tunggu**: Cari tahu estimasi durasi layanan ini.
-
-        Jika ini benar, beri tahu saya topik mana yang ingin Anda ketahui lebih lanjut, atau tuliskan pertanyaan spesifik Anda. Saya siap membantu! 😊
+  utter_bantuan:
     - text: |
-        Saya menangkap bahwa Anda menyebutkan **"{nama_layanan}"**. Apakah Anda ingin:
-        - Mendapatkan detail layanan?
-        - Cek biaya atau persyaratan?
-        - Mendaftar antrian untuk layanan ini?
+        Saya bisa membantu Anda dengan berbagai hal seperti:
+          - **Cek antrian dan status nomor antrian Anda**
+          - **Jam operasional layanan**
+          - **Informasi dan deskripsi layanan**
+          - **Persyaratan untuk setiap layanan**
+          - **Mekanisme dan prosedur layanan**
+          - **Estimasi waktu tunggu layanan**
+          - **Tarif atau biaya layanan**
+        Silakan beri tahu saya apa yang bisa saya bantu!
 
-        Mohon berikan konfirmasi agar saya bisa membantu Anda lebih lanjut! ✨
-    - text: |
-        Baik, Anda menyebutkan **"{nama_layanan}"**.  
-        Apakah Anda ingin:
-        - **Informasi umum** tentang layanan ini?  
-        - **Cek antrian atau buat antrian**?  
+  utter_ask_nomor_antrian:
+    - text: 'Silakan sebutkan nomor antrian Anda.'
+    - text: 'Nomor antrian Anda berapa?'
+    - text: 'Tolong beri tahu saya nomor antrian Anda.'
+    - text: 'Untuk cek status, saya butuh nomor antrian Anda. Bisa disebutkan?'
+    - text: 'Nomor antrian yang ingin Anda cek berapa ya?'
 
-        Sebutkan kebutuhan Anda, saya akan memandu Anda langkah demi langkah! 😊
-
-  utter_ask_nama_layanan:
-    - text: 'Layanan apa yang ingin Anda ketahui jadwalnya?'
-
-  utter_ask_hari:
-    - text: 'Hari apa yang Anda ingin ketahui jadwalnya?'
-
-  utter_jadwal_harian:
-    - text: 'Berikut jadwal untuk {nama_layanan} pada hari {hari}: {jadwal}.'
-
-  utter_tidak_tersedia:
-    - text: 'Maaf, layanan {nama_layanan} tidak tersedia. Silakan cek nama layanan Anda.'
+  utter_invalid_nomor_antrian:
+    - text: 'Format nomor antrian tidak valid. Silakan masukkan format seperti A001, B003, atau 001.'
 
   utter_perpisahan:
     - text: 'Terima kasih sudah menggunakan layanan kami. Semoga hari Anda menyenangkan! 😊 Sampai jumpa lagi!'
@@ -175,19 +153,8 @@ responses:
 
 # Define actions
 actions:
-  - utter_ask_nama_layanan
-  - utter_ask_hari
-  - utter_jadwal_harian
-  - utter_tidak_tersedia
-  - utter_konfirmasi_nama_layanan
-
-  - validate_nama_layanan_tersedia_form
-
-  - validate_jam_operasional_form
-  - validate_informasi_form
-  - validate_persyaratan_form
-  - validate_mekanisme_prosedur_form
-  - validate_waktu_tunggu_form
-  - validate_tarif_biaya_form
+  - validate_cek_status_antrian_form
+  - utter_ask_nomor_antrian
 
   - action_manage_services
+  - action_set_id_layanan
