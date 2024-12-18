@@ -9,6 +9,7 @@ intents:
   - salam
   - perpisahan
   - nlu_fallback
+  - feedback
 
   - jam_operasional
   - informasi
@@ -102,37 +103,37 @@ responses:
     - text: |
         **Halo! Selamat datang di Mal Pelayanan Publik! 👋**
         Saya di sini untuk membantu Anda dengan berbagai informasi dan layanan. Berikut beberapa hal yang bisa saya bantu:
-          - **Jam operasional layanan**
-          - **Informasi dan deskripsi layanan**
-          - **Persyaratan untuk setiap layanan**
-          - **Mekanisme dan prosedur layanan**
-          - **Estimasi waktu tunggu layanan**
-          - **Tarif atau biaya layanan**
-          - **Cek antrian dan status nomor antrian Anda**
+          \- **Jam operasional layanan**
+          \- **Informasi dan deskripsi layanan**
+          \- **Persyaratan untuk setiap layanan**
+          \- **Mekanisme dan prosedur layanan**
+          \- **Estimasi waktu tunggu layanan**
+          \- **Tarif atau biaya layanan**
+          \- **Cek antrian dan status nomor antrian Anda**
         Silakan pilih salah satu fitur di atas atau tanyakan apa pun yang Anda butuhkan. Ketik saja, dan saya akan segera membantu Anda! 😊
 
   utter_fitur:
     - text: |
         Berikut beberapa fitur yang tersedia dalam layanan ini:
-          - **Cek antrian dan status nomor antrian Anda**
-          - **Jam operasional layanan**
-          - **Informasi dan deskripsi layanan**
-          - **Persyaratan untuk setiap layanan**
-          - **Mekanisme dan prosedur layanan**
-          - **Estimasi waktu tunggu layanan**
-          - **Tarif atau biaya layanan**
+          \- **Cek antrian dan status nomor antrian Anda**
+          \- **Jam operasional layanan**
+          \- **Informasi dan deskripsi layanan**
+          \- **Persyaratan untuk setiap layanan**
+          \- **Mekanisme dan prosedur layanan**
+          \- **Estimasi waktu tunggu layanan**
+          \- **Tarif atau biaya layanan**
         Silakan pilih layanan yang ingin Anda akses.
 
   utter_bantuan:
     - text: |
         Saya bisa membantu Anda dengan berbagai hal seperti:
-          - **Cek antrian dan status nomor antrian Anda**
-          - **Jam operasional layanan**
-          - **Informasi dan deskripsi layanan**
-          - **Persyaratan untuk setiap layanan**
-          - **Mekanisme dan prosedur layanan**
-          - **Estimasi waktu tunggu layanan**
-          - **Tarif atau biaya layanan**
+          \- **Cek antrian dan status nomor antrian Anda**
+          \- **Jam operasional layanan**
+          \- **Informasi dan deskripsi layanan**
+          \- **Persyaratan untuk setiap layanan**
+          \- **Mekanisme dan prosedur layanan**
+          \- **Estimasi waktu tunggu layanan**
+          \- **Tarif atau biaya layanan**
         Silakan beri tahu saya apa yang bisa saya bantu!
 
   utter_ask_nomor_antrian:
@@ -158,3 +159,4 @@ actions:
 
   - action_manage_services
   - action_set_id_layanan
+  - action_record_feedback

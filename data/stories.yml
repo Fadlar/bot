@@ -15,70 +15,107 @@ stories:
       - intent: perpisahan
       - action: utter_perpisahan
 
-  - story: aktivasi jam_operasional
+  - story: user gives feedback
     steps:
+      - intent: feedback
+      - action: action_record_feedback
+
+  - story: interactive_story_1
+    steps:
+      - intent: salam
+      - action: utter_salam
       - intent: jam_operasional
+      - slot_was_set:
+          - tujuan_layanan: jam_operasional
       - action: action_set_id_layanan
+      - slot_was_set:
+          - id_layanan: 28
       - action: action_manage_services
-
-  - story: aktivasi informasi
-    steps:
       - intent: informasi
+      - slot_was_set:
+          - tujuan_layanan: informasi
       - action: action_set_id_layanan
+      - slot_was_set:
+          - id_layanan: 28
       - action: action_manage_services
-
-  - story: aktivasi persyaratan
-    steps:
       - intent: persyaratan
+      - slot_was_set:
+          - tujuan_layanan: persyaratan
       - action: action_set_id_layanan
+      - slot_was_set:
+          - id_layanan: 78
       - action: action_manage_services
-
-  - story: aktivasi mekanisme_prosedur
-    steps:
       - intent: mekanisme_prosedur
+      - slot_was_set:
+          - tujuan_layanan: mekanisme_prosedur
       - action: action_set_id_layanan
+      - slot_was_set:
+          - id_layanan: 28
       - action: action_manage_services
-
-  - story: aktivasi waktu_tunggu
-    steps:
       - intent: waktu_tunggu
+      - slot_was_set:
+          - tujuan_layanan: waktu_tunggu
       - action: action_set_id_layanan
+      - slot_was_set:
+          - id_layanan: 28
       - action: action_manage_services
-
-  - story: aktivasi tarif_biaya
-    steps:
       - intent: tarif_biaya
+      - slot_was_set:
+          - tujuan_layanan: tarif_biaya
       - action: action_set_id_layanan
+      - slot_was_set:
+          - id_layanan: 28
       - action: action_manage_services
-
-  - story: aktivasi cek_antrian
-    steps:
       - intent: cek_antrian
+      - slot_was_set:
+          - tujuan_layanan: cek_antrian
       - action: action_set_id_layanan
+      - slot_was_set:
+          - id_layanan: 28
       - action: action_manage_services
-
-  - story: aktivasi cek_status_antrian
-    steps:
       - intent: cek_status_antrian
+      - slot_was_set:
+          - tujuan_layanan: cek_status_antrian
       - action: action_set_id_layanan
+      - slot_was_set:
+          - id_layanan: 28
       - action: cek_status_antrian_form
       - active_loop: cek_status_antrian_form
-
-  - story: submit cek_status_antrian
-    steps:
-      - active_loop: cek_status_antrian_form
+      - slot_was_set:
+          - tujuan_layanan: cek_status_antrian
+      - slot_was_set:
+          - requested_slot: nomor_antrian
+      - intent: cek_status_antrian
+        entities:
+          - nomor_antrian: '0033'
+      - slot_was_set:
+          - nomor_antrian: '0033'
+      - slot_was_set:
+          - tujuan_layanan: cek_status_antrian
       - action: cek_status_antrian_form
-      - active_loop: null
+      - slot_was_set:
+          - nomor_antrian: null
+      - slot_was_set:
+          - requested_slot: nomor_antrian
+      - intent: cek_status_antrian
+        entities:
+          - nomor_antrian: '001'
+      - slot_was_set:
+          - nomor_antrian: '001'
+      - slot_was_set:
+          - tujuan_layanan: cek_status_antrian
+      - action: cek_status_antrian_form
+      - slot_was_set:
+          - nomor_antrian: '001'
       - slot_was_set:
           - requested_slot: null
+      - active_loop: null
       - action: action_manage_services
-
-  - story: Menjawab pertanyaan tentang bantuan
-    steps:
+      - intent: perpisahan
+      - action: utter_perpisahan
       - intent: bantuan
       - action: utter_bantuan
-
-  - story: Menjawab pertanyaan tentang fitur
-    steps:
       - intent: fitur
       - action: utter_fitur
+      - intent: nlu_fallback
+      - action: utter_default

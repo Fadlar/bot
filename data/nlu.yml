@@ -137,6 +137,27 @@ nlu:
       - Apa yang bisa kamu bantu saya lakukan?
       - Bisakah kamu bantu saya dengan layanan ini?
 
+  - intent: feedback
+    examples: |
+      - Saya puas dengan layanan ini
+      - Layanan ini sangat membantu, terima kasih!
+      - Chatbot ini sangat cepat dan tepat
+      - Saya tidak puas dengan layanan ini
+      - Terlalu lama menunggu jawabannya
+      - Saran: Tolong buat lebih cepat lagi
+      - Chatbot ini sangat bermanfaat
+      - Saya kecewa, jawaban tidak memadai
+      - Bagus, saya suka cara chatbot ini menjawab
+      - Saya beri rating 4 bintang
+      - Rating saya 5 untuk chatbot ini
+      - 1 bintang, sangat buruk
+      - Saya merasa puas dengan layanan ini
+      - Mungkin lebih baik jika ada penjelasan lebih detail
+      - Terima kasih, jawaban sangat jelas dan cepat
+      - Tidak membantu sama sekali
+      - Perlu perbaikan di layanan ini
+      - 3 bintang, lumayan
+
   - intent: nlu_fallback
     examples: |
       - ghskdjd
